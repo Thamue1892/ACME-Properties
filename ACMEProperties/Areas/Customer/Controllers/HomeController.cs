@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using ACMEProperties.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ACMEProperties.Models;
 
-namespace ACMEProperties.Controllers
+namespace ACMEProperties.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller

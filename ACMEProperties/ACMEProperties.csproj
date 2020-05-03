@@ -21,4 +21,10 @@
     <Folder Include="Areas\Admin\Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ACMEProperties.DataAccess\ACMEProperties.DataAccess.csproj" />
+    <ProjectReference Include="..\ACMEProperties.Models\ACMEProperties.Models.csproj" />
+    <ProjectReference Include="..\ACMEProperties.Utility\ACMEProperties.Utility.csproj" />
+  </ItemGroup>
+
 </Project>
