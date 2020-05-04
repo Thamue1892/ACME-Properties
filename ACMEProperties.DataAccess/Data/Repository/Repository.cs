@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ACMEProperties.DataAccess.Data.Repository
 {
-    class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly DbContext Context;
         internal DbSet<T> dbSet;

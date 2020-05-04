@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ACMEProperties.Models
 {
-    class Category
+    public class Category
     {
         [Key]
         public int Id { get; set; }
