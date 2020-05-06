@@ -13,10 +13,15 @@ namespace ACMEProperties.DataAccess.Data.Repository
         {
             _db = db;
             Category = new CategoryRepository(_db);
+            Rental = new RentalRepository(_db);
+            Property = new PropertyRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
 
+        public IRentalRepository Rental { get; private set; }
+
+        public IPropertyRepository Property { get; private set; }
 
         public void Dispose()
         {

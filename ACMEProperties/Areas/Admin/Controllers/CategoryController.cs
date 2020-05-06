@@ -68,6 +68,8 @@ namespace ACMEProperties.Areas.Admin.Controllers
             return Json(new { data = _unitOfWork.Category.GetAll() });
         }
 
+
+
         #endregion
     }
 
