@@ -16,5 +16,6 @@ namespace ACMEProperties.DataAccess
 
         public DbSet<Category> Category { get; set; }
         public DbSet<Property> Property { get; set; }
+        public DbSet<Rental> Rental { get; set; }
     }
 }

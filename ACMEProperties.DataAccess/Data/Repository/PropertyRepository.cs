@@ -7,11 +7,11 @@ using ACMEProperties.Models;
 
 namespace ACMEProperties.DataAccess.Data.Repository
 {
-    class PropertyRepository:IPropertyRepository
+    class PropertyRepository : Repository<Property>, IPropertyRepository
     {
         private readonly ApplicationDbContext _db;
 
-        public PropertyRepository(ApplicationDbContext db)
+        public PropertyRepository(ApplicationDbContext db):base(db)
         {
             _db = db;
         }
