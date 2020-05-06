@@ -17,6 +17,9 @@ namespace ACMEProperties.Models
         [Required]
         public double Price { get; set; }
 
+        [Display(Name = "Description")]
+        public string LongDesc { get; set; }
+
         [Required]
         [Display(Name = "Number of Rooms")]
         public int NumberOfRooms { get; set; }
