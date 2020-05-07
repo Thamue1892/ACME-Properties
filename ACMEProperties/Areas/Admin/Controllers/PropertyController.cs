@@ -22,6 +22,11 @@ namespace ACMEProperties.Areas.Admin.Controllers
             return View();
         }
 
+
+       
+
+
+
         #region API CALLS
 
         public IActionResult GetAll()
