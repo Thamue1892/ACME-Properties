@@ -23,4 +23,8 @@
     <ProjectReference Include="..\ACMEProperties.Utility\ACMEProperties.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\property\" />
+  </ItemGroup>
+
 </Project>
