@@ -67,9 +67,14 @@ namespace ACMEProperties.DataAccess.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int>("RentalId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("RentalId");
 
                     b.ToTable("Property");
                 });
@@ -294,6 +299,12 @@ namespace ACMEProperties.DataAccess.Migrations
                     b.HasOne("ACMEProperties.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ACMEProperties.Models.Rental", "Rental")
+                        .WithMany()
+                        .HasForeignKey("RentalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

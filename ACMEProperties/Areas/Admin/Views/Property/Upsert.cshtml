@@ -1,0 +1,151 @@
+﻿@using System.Reflection
+@model ACMEProperties.Models.ViewModels.PropertyViewModel
+
+@{
+    var title = "Create Service";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data" class="pt-3">
+
+    <div class="row px-2 mx-2 backgroundWhite border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Property.Id != 0)
+        {
+            <input type="hidden" asp-for="Property.Id" />
+            title = "Edit Service";
+        }
+
+        <div class="col-12">
+            <h2 class="text-primary">@title</h2>
+            <br />
+            <div class="col-9">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Property.Name" class="form-control" />
+                        <span asp-validation-for="Property.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.Price"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Property.Price" id="txtPrice" class="form-control" />
+                        <span asp-validation-for="Property.Price" class="text-danger"></span>
+                    </div> 
+                    
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.NumberOfRooms"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Property.NumberOfRooms" id="txtRooms" class="form-control" />
+                        <span asp-validation-for="Property.NumberOfRooms" class="text-danger"></span>
+                    </div> 
+                    
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.Bathrooms"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Property.Bathrooms" id="txtBathrooms" class="form-control" />
+                        <span asp-validation-for="Property.Bathrooms" class="text-danger"></span>
+                    </div> 
+                    
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.LongDesc"></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="Property.LongDesc" class="form-control" style="height: 300px;"></textarea>
+                        <span asp-validation-for="Property.LongDesc" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.ImageUrl"></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.RentalId"></label>
+                    </div>
+                    <div class="col-8">
+                        @Html.DropDownListFor(m => m.Property.RentalId, Model.RentalList, "-Please select a Rental-", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Property.CategoryId"></label>
+                    </div>
+                    <div class="col-8">
+                        @Html.DropDownListFor(m => m.Property.CategoryId, Model.CategoryList, "-Please select a Category-", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4">
+                        @if (Model.Property.Id != 0)
+                        {
+                            //Edit button and back to list
+                            <partial name="_EditAndBackToListButton" model="Model.Property.Id" />
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" onclick="return  validateInput()" class="btn btn-primary form-control"> Create</button>
+                                </div>
+                                <div class="col">
+                                    <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            @if (Model.Property.Id != 0)
+            {
+                <div class="col-3">
+                    <img src="@Model.Property.ImageUrl" width="100%" style="border-radius: 5px;border: 1px solid #bbb9b9" />
+                </div>
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    <script src="https://cdn.tiny.cloud/1/te3nibvjahzmciutwfkhbfrp54wc11vzj6b8hwh4s8v3wl4v/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins:'lists',
+            menubar:'file edit and format'
+        })
+
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                swal("Error", "Please select an Image", "error")
+                return false;
+            }
+            return true;
+        };
+
+        $(document).ready(function() {
+            if (document.getElementById('txtPrice').value == "0") {
+                document.getElementById('txtPrice').value = '';
+            }
+        })
+    </script>
+}

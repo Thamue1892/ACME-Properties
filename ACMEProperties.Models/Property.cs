@@ -38,5 +38,12 @@ namespace ACMEProperties.Models
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
+        [Required]
+        [Display(Name = "Rental")]
+        public int RentalId { get; set; }
+
+        [ForeignKey("RentalId")]
+        public Rental Rental { get; set; }
+
     }
 }
