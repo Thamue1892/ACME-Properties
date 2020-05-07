@@ -14,7 +14,7 @@ function loadDataTable() {
         },
         "columns": [
             { "data": "name", "width": "50%" },
-            { "data": "rentalDuration", "width": "20%" },
+            { "data": "durationInMonths", "width": "20%" },
             {
                 "data": "id",
                 "render": function (data) {
@@ -39,7 +39,7 @@ function loadDataTable() {
 }
 
 function Delete(url) {
-    swal({
+    window.swal({
             title: "Are you sure you want to delete?",
             text: "You will not be able to restore the content!",
             type: "warning",
