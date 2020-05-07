@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ACMEProperties</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha256-ENFZrbVzylNbgnXx0n3I1g//2WeO47XxoPe0vkp3NC8=" crossorigin="anonymous" />
@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">ACME Properties</a>
+                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">ACME Rentals</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -29,9 +29,9 @@
                                 Content Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropDown">
-                                <a class="dropdown-item text-white " asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
-                                <a class="dropdown-item text-white " asp-area="Admin" asp-controller="Rental" asp-action="Index">Rentals</a>
-                                <a class="dropdown-item text-white " asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                <a class="dropdown-item " asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                <a class="dropdown-item " asp-area="Admin" asp-controller="Rental" asp-action="Index">Rentals</a>
+                                <a class="dropdown-item " asp-area="Admin" asp-controller="Property" asp-action="Index">Property</a>
                             </div>
                         </li>
                         <li class="nav-item">

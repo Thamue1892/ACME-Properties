@@ -5,7 +5,7 @@ using ACMEProperties.Models;
 
 namespace ACMEProperties.DataAccess.Data.Repository.IRepository
 {
-    public interface IPropertyRepository
+    public interface IPropertyRepository:IRepository<Property>
     {
         void Update(Property property);
     }
