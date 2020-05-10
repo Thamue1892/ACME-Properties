@@ -10,5 +10,6 @@ namespace ACMEProperties.Models.ViewModels
         public Property Property { get; set; }
         public IEnumerable<SelectListItem> CategoryList { get; set; }
         public IEnumerable<SelectListItem> RentalList { get; set; }
+        
     }
 }

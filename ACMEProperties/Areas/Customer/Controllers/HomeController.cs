@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
+using ACMEProperties.DataAccess.Data.Repository.IRepository;
 using ACMEProperties.Models;
+using ACMEProperties.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -8,16 +10,23 @@ namespace ACMEProperties.Areas.Customer.Controllers
     [Area("Customer")]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
+        private HomeViewModel HomeViewM;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _logger = logger;
+           _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            HomeViewM = new HomeViewModel()
+            {
+                CategoryList = _unitOfWork.Category.GetAll(),
+                PropertyList = _unitOfWork.Property.GetAll(includeProperties: "Rental")
+            };
+
+            return View(HomeViewM);
         }
 
         public IActionResult Privacy()

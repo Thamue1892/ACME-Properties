@@ -13,10 +13,10 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "name", "width": "15%" },
+            { "data": "name", "width": "25%" },
             { "data": "category.name", "width": "15%" },
-            { "data": "price", "width": "15%" },
-            { "data": "numberOfRooms", "width": "15%" },
+            { "data": "price", "width": "10%" },
+            { "data": "numberOfRooms", "width": "10%" },
             { "data": "rental.durationInMonths", "width": "15%" },
             {
                 "data": "id",

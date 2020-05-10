@@ -7,7 +7,7 @@ using ACMEProperties.Models;
 
 namespace ACMEProperties.DataAccess.Data.Repository
 {
-    class PropertyRepository : Repository<Property>, IPropertyRepository
+    public class PropertyRepository : Repository<Property>, IPropertyRepository
     {
         private readonly ApplicationDbContext _db;
 
@@ -15,6 +15,7 @@ namespace ACMEProperties.DataAccess.Data.Repository
         {
             _db = db;
         }
+
 
         public void Update(Property property)
         {

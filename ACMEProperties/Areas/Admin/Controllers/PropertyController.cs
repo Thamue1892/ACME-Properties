@@ -121,11 +121,26 @@ namespace ACMEProperties.Areas.Admin.Controllers
             return Json(new { data = _unitOfWork.Property.GetAll(includeProperties: "Category,Rental") });
         }
 
-        //[HttpDelete]
-        //public IActionResult Delete(int id)
-        //{
-        //    var propertyFromDb = _unitOfWork.Property.Get(id);
-        //}
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var propertyFromDb = _unitOfWork.Property.Get(id);
+            string webRootPath = _hostEnvironment.WebRootPath;
+            var imagePath = Path.Combine(webRootPath, propertyFromDb.ImageUrl.TrimStart('\\'));
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(imagePath);
+            }
+
+            if (propertyFromDb==null)
+            {
+                return Json(new {success = false, message = "Error wile deleting."});
+            }
+
+            _unitOfWork.Property.Remove(propertyFromDb);
+            _unitOfWork.Save();
+            return Json(new {success = true, message = "Delete successful"});
+        }
 
         #endregion
     }
