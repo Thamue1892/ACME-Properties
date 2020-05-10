@@ -29,6 +29,13 @@ namespace ACMEProperties.Areas.Customer.Controllers
             return View(HomeViewM);
         }
 
+        public IActionResult Details(int id)
+        {
+            var propertyFromDb =
+                _unitOfWork.Property.GetFirstOrDefault(includeProperties: "Category,Rental", filter: p => p.Id == id);
+            return View(propertyFromDb);
+        }
+
         public IActionResult Privacy()
         {
             return View();
