@@ -2,7 +2,7 @@
 @model ACMEProperties.Models.ViewModels.PropertyViewModel
 
 @{
-    var title = "Create Service";
+    var title = "Create Property";
 }
 
 <form method="post" asp-action="Upsert" enctype="multipart/form-data" class="pt-3">
@@ -12,7 +12,7 @@
         @if (Model.Property.Id != 0)
         {
             <input type="hidden" asp-for="Property.Id" />
-            title = "Edit Service";
+            title = "Edit Property";
         }
 
         <div class="col-12">

@@ -74,7 +74,7 @@ body {
 }
 
 .search-background {
-    background: url('../images/services/dust_scratches.png');
+    background: url('../images/home-page/background.jpg');
 }
 
 .backgroundWhite {
@@ -114,14 +114,14 @@ body {
 /*Carousel css*/
 
 .carousel item {
-    height: 400px;
+    height: 250px;
 }
 
 .item img {
     position: absolute;
     top: 0;
     left: 0;
-    min-height: 400px;
+    min-height: 250px;
 }
 
 .carousel-holder {
@@ -134,7 +134,7 @@ body {
 }
 
 .caption {
-    height: 130px;
+    height: 100px;
     overflow: hidden;
 }
 
