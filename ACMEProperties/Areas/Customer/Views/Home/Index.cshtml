@@ -7,25 +7,28 @@
         <div class="row container pb-3 backgroundWhite">
             <div class="col-12">
                 <div class="row">
-                    <h2 class="text-success"><b>@category.Name</b></h2>
+                    <h2 class="text-primary text-uppercase"><b>@category.Name</b></h2>
 
                     <div class="col-12">
                         <div class="row my-3">
                             @foreach (var property in Model.PropertyList.Where(c => c.CategoryId == category.Id))
                             {
-                                <div class="col-lg-4 col-xl-3 col-md-6 pb-4">
+                                <div class="col-lg-8 col-xl-3 col-md-8 pb-2">
                                     <div class="card" style="border: 2px solid #158CBA ; border-radius: 5px; background: url('/images/home-page/white-painted-wall.jpg')">
                                         <div class="pl-3 pt-1 text-center">
                                             <h3 class="card-title text-primary"><b>@property.Name</b></h3>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <div class="pl-1 text-muted">Rent per Month</div>
+                                            <div class="pl-1 text-primary">Rent per Month</div>
                                             <div class="pl-1 text-danger h5">R @property.Price</div>
+                                            <div class="pl-1 text-primary">Rooms: </div>
+                                            <div class="pl-1 text-danger h5"> @property.NumberOfRooms</div>
+
                                         </div>
                                         <img src="@property.ImageUrl" class="card-img-top p-2 rounded" />
 
-                                        <div class="text-muted text-center pb-2">@property.Rental.Name</div>
-                                        <a asp-action="Details" class="btn btn-success" style="border-radius: 2px;" asp-route-id="@property.Id">Details</a>
+                                        <div class="text-primary text-center pb-2">@property.Rental.Name</div>
+                                        <a asp-action="Details" class="btn btn-primary" style="border-radius: 2px;" asp-route-id="@property.Id">Details</a>
                                     </div>
                                 </div>
                             }

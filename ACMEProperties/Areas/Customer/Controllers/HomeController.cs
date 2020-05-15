@@ -36,6 +36,15 @@ namespace ACMEProperties.Areas.Customer.Controllers
             return View(propertyFromDb);
         }
 
+        public IActionResult Contact()
+        {
+            return RedirectToAction(nameof(Index));
+        }
+        
+        public IActionResult About()
+        {
+            return View();
+        }
        
     }
 }
