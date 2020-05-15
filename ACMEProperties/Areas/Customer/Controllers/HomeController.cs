@@ -38,7 +38,7 @@ namespace ACMEProperties.Areas.Customer.Controllers
 
         public IActionResult Contact()
         {
-            return RedirectToAction(nameof(Index));
+            return View();
         }
         
         public IActionResult About()

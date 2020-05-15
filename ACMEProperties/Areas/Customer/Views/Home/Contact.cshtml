@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card pt-1">
+    <div class="card-header bg-secondary text-primary ml-0 row container">
+        <div class="col-12 d-none d-md-block col-md-12 pb-1">
+            <i class="fas fa-phone"></i> &nbsp; Contact Us
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="container rounded p-2">
+            <div class="row">
+                <div class="col-12 col-lg-12 pb-4">
+                    <div class="row">
+                        <h4 class="d-flex justify-content-between align-items-center">
+                            <p class="text-center mx-auto mb-5 text-primary">
+                                Please do not hesitate to contact us directly.
+                                If interested in any of the properties,please fill in the form below.
+                                Our team will come back to you within
+                                a matter of hours to help you.
+                            </p>
+
+                        </h4>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-9">
+                            <input name="Name" readonly type="text" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label>Phone</label>
+                        </div>
+                        <div class="col-9">
+                            <input name="Phone" id="txtPhone" readonly type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-9">
+                            <input name="Email" id="txtPhone" readonly type="email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label>Message</label>
+                        </div>
+                        <div class="col-9">
+                            <textarea name="Message" rows="4" readonly type="email" class="form-control md-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="card-footer">
+    <div class="col-12 col-md-12 col-lg-12 ">
+        <a asp-action="Index" class="btn btn-success form-control">Send</a>
+    </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12 text-center text-primary">
+        <div class="row">
+            <div class="col-4">
+                <i class="fas fa-map-marker-alt fa-2x"></i>
+                <p>Johannesburg South Africa</p>
+            </div>
+
+            <div class="col-4">
+                <i class="fas fa-phone mt-4 fa-2x"></i>
+                <p>+ 27 84 484 1624</p>
+            </div>
+
+            <div class="col-4">
+                <i class="fas fa-envelope mt-4 fa-2x"></i>
+                <p>contact@acmerentals.com</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
