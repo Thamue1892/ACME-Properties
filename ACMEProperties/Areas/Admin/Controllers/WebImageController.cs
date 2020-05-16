@@ -24,6 +24,7 @@ namespace ACMEProperties.Areas.Admin.Controllers
             return View();
         }
 
+
         public IActionResult Upsert(int? id)
         {
             WebImages imageObj = new WebImages();
@@ -42,6 +43,7 @@ namespace ACMEProperties.Areas.Admin.Controllers
 
             return View(imageObj);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(int id, WebImages imageObj)
