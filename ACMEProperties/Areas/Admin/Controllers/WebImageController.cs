@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using ACMEProperties.DataAccess;
@@ -24,7 +23,6 @@ namespace ACMEProperties.Areas.Admin.Controllers
             return View();
         }
 
-
         public IActionResult Upsert(int? id)
         {
             WebImages imageObj = new WebImages();
@@ -39,50 +37,6 @@ namespace ACMEProperties.Areas.Admin.Controllers
                 {
                     return NotFound();
                 }
-            }
-
-            return View(imageObj);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Upsert(int id, WebImages imageObj)
-        {
-            if (ModelState.IsValid)
-            {
-                var files = HttpContext.Request.Form.Files;
-                if (files.Count>0)
-                {
-                    byte[] p1 = null;
-                    using (var fs1=files[0].OpenReadStream())
-                    {
-                        using (var ms1 = new MemoryStream())
-                        {
-                            fs1.CopyTo(ms1);
-                            p1 = ms1.ToArray();
-                        }
-                    }
-
-                    imageObj.Picture = p1;
-                }
-
-                if (imageObj.Id==0)
-                {
-                    _db.WebImages.Add(imageObj);
-                }
-                else
-                {
-                    var imageFromDb = _db.WebImages.FirstOrDefault(i => i.Id == id);
-
-                    imageFromDb.Name = imageFromDb.Name;
-                    if (files.Count>0)
-                    {
-                        imageFromDb.Picture = imageObj.Picture;
-                    }
-                }
-
-                _db.SaveChanges();
-                return RedirectToAction(nameof(Index));
             }
 
             return View(imageObj);
