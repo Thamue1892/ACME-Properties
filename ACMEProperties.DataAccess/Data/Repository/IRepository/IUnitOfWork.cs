@@ -9,6 +9,7 @@ namespace ACMEProperties.DataAccess.Data.Repository.IRepository
         ICategoryRepository Category { get; }
         IRentalRepository Rental { get; }
         IPropertyRepository Property { get; }
+        IUserRepository User { get; }
 
 
         void Save();

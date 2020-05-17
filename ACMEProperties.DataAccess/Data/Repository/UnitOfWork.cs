@@ -15,6 +15,7 @@ namespace ACMEProperties.DataAccess.Data.Repository
             Category = new CategoryRepository(_db);
             Rental = new RentalRepository(_db);
             Property = new PropertyRepository(_db);
+            User = new UserRepository(_db);
         }
 
         public ICategoryRepository Category { get; private set; }
@@ -22,6 +23,8 @@ namespace ACMEProperties.DataAccess.Data.Repository
         public IRentalRepository Rental { get; private set; }
 
         public IPropertyRepository Property { get; private set; }
+
+        public IUserRepository User { get; private set; }
 
         public void Dispose()
         {
