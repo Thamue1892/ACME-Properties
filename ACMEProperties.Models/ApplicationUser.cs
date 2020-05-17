@@ -10,5 +10,6 @@ namespace ACMEProperties.Models
     {
         [Required]
         public string Name { get; set; }
+
     }
 }
