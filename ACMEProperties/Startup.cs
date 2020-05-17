@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using ACMEProperties.DataAccess;
 using ACMEProperties.DataAccess.Data.Repository;
 using ACMEProperties.DataAccess.Data.Repository.IRepository;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace ACMEProperties
 {
@@ -27,13 +28,15 @@ namespace ACMEProperties
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
             services.AddRazorPages();
-            
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
