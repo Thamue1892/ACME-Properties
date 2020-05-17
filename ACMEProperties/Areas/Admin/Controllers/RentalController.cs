@@ -1,9 +1,11 @@
 ﻿using ACMEProperties.DataAccess.Data.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using ACMEProperties.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ACMEProperties.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class RentalController : Controller
     {

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using ACMEProperties.DataAccess.Data.Repository.IRepository;
 using ACMEProperties.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ACMEProperties.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class CategoryController : Controller
     {
