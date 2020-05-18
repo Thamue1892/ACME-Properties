@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ACMEProperties.Models;
 using ACMEProperties.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -43,14 +44,14 @@ namespace ACMEProperties.DataAccess.Data.Initializer
             _roleManager.CreateAsync(new IdentityRole(SD.Admin)).GetAwaiter().GetResult();
             _roleManager.CreateAsync(new IdentityRole(SD.Manager)).GetAwaiter().GetResult();
 
-            _userManager.CreateAsync(new IdentityUser
+            _userManager.CreateAsync(new ApplicationUser
             {
                 UserName = "admin@acmerental.com",
                 Email = "admin@acmerental.com",
                 EmailConfirmed = true
             }, "Admin123*").GetAwaiter().GetResult();
 
-            IdentityUser user = _db.Users.FirstOrDefault(u => u.Email == "admin@acmerental.com");
+            ApplicationUser user = _db.ApplicationUser.FirstOrDefault(u => u.Email == "admin@acmerental.com");
             _userManager.AddToRoleAsync(user, SD.Admin).GetAwaiter().GetResult();
         }
     }

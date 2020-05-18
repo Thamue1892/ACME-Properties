@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ACMEProperties.DataAccess;
+using ACMEProperties.DataAccess.Data.Initializer;
 using ACMEProperties.DataAccess.Data.Repository;
 using ACMEProperties.DataAccess.Data.Repository.IRepository;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -31,8 +32,9 @@ namespace ACMEProperties
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-            
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IDbInitializer, DbInitializer>();
             services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
             services.AddRazorPages();
             services.AddMvc();
@@ -40,7 +42,7 @@ namespace ACMEProperties
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInit)
         {
             if (env.IsDevelopment())
             {
@@ -57,7 +59,7 @@ namespace ACMEProperties
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            dbInit.Initialize();
             app.UseAuthentication();
             app.UseAuthorization();
 
