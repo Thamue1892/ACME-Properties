@@ -5,14 +5,14 @@
 }
 
 <br />
-<div class="card pt-0 text-primary">
+<div class="card pt-0 ">
     <div class="card-header bg-secondary text-primary ml-0 row container text-center">
         <div class="col-12  col-md-12 pb-1">
             <i class="far fa-comments fa-3x"></i> &nbsp; <h2> Contact Us</h2>
         </div>
     </div>
     <div class="card-body">
-        <div class="container rounded p-2">
+        <div class="form-group p-2">
             <div class="row backgroundWhite border">
                 <div class="col-12 col-lg-12 pb-4">
                     <div class="col-12 col-md-12">
@@ -43,7 +43,7 @@
                             <label>Phone</label>
                         </div>
                         <div class="col-9">
-                            <input name="Phone" readonly type="text" class="form-control" />
+                            <input name="Phone" readonly type="text" class="form-control" required />
                         </div>
                     </div>
                     <div class="row my-3">
@@ -51,7 +51,7 @@
                             <label>Email</label>
                         </div>
                         <div class="col-9">
-                            <input name="Email" readonly type="email" class="form-control" />
+                            <input name="Email" readonly type="email" class="form-control" required />
                         </div>
                     </div>
                     <div class="row my-3">
@@ -59,14 +59,14 @@
                             <label>Message</label>
                         </div>
                         <div class="col-9">
-                            <textarea name="Message" rows="4" readonly type="email" class="form-control"></textarea>
+                            <textarea name="Message" rows="4" readonly type="email" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-3">
                         </div>
                         <div class="col-9">
-                            <a asp-action="Index" class="btn btn-primary form-control">Send</a>
+                            <button type="submit" class="btn btn-primary form-control">Send</button>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
     </div>
 </div>
 
-<div class="row text-primary pt-5">
+<div class="row pt-5">
     <div class="col-md-12 text-center text-primary">
         <div class="row">
             <div class="col-4">
