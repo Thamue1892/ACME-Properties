@@ -14,11 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Initializer\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ACMEProperties.Models\ACMEProperties.Models.csproj" />
+    <ProjectReference Include="..\ACMEProperties.Utility\ACMEProperties.Utility.csproj" />
   </ItemGroup>
 
 </Project>
